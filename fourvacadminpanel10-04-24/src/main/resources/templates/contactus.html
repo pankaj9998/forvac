@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+ <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+ <head>
+   <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+   <title>FOURVAC TECHNOLOGIES!</title>
+   <meta content="" name="descriptison">
+   <meta content="" name="keywords">
+
+   <!-- Favicons -->
+   <link href="assets/img/logo.png" rel="icon">
+   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+   <!-- Vendor CSS Files -->
+   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+   <!-- Template Main CSS File -->
+   <link href="assets/css/style.css" rel="stylesheet">
+
+
+ </head>
+
+ <body>
+
+   <!-- ======= Top Bar ======= -->
+   <section id="topbar" class="d-none d-lg-block">
+     <div class="container clearfix">
+       <div class="contact-info float-left">
+         <i class="icofont-envelope"></i><a href="mailto:admin@fourvac.com">admin@fourvac.com</a>
+         <i class="icofont-phone"></i> +91 (20) 27122660
+       </div>
+       <div class="social-links float-right">
+         <!--<a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>-->
+         Quality Precision Innovation Service The Perfect Four
+       </div>
+     </div>
+   </section>
+   <script>
+     window.onscroll = function() {
+       growShrinkLogo()
+     };
+
+     function growShrinkLogo() {
+       var Logo = document.getElementById("Logo")
+       if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+         Logo.style.width = '80px';
+       } else {
+         Logo.style.width = '150px';
+       }
+     }
+   </script>
+   <!-- ======= Header ======= -->
+
+
+
+
+
+
+
+	<header id="header">
+		<div class="container">
+			<div class="logo float-left">
+				<a href="index-2.html"><img src="assets/img/logo.png" id='Logo' class="img-fluid"></a>
+			</div>
+			<div class="padd">
+				<nav class="nav-menu float-right d-none d-lg-block">
+					<ul>
+						<li class="active"><a href="/home">Home</a></li>
+						<li><a href="/aboutus">About Us</a></li>
+						<li class="drop-down"><a href="#">Our Products</a>
+							<ul>
+								<th:block th:each="category : ${categories}">
+									<th:block th:if="${category.categoryName != null}">
+										<a th:href="'/products?category=' + ${category.categoryName}"
+											th:text="${category.categoryName}"></a>
+									</th:block>
+								</th:block>
+							</ul>
+						</li>
+
+						<li><a href="/ourservices">Our Services</a></li>
+						<li><a href="/agencies">Agencies</a></li>
+						<li><a href="/getquotation">Get Quotation</a></li>
+						<li><a href="/contactus">Contact Us</a></li>
+					</ul>
+				</nav><!-- .nav-menu -->
+			</div>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
+   
+   <section id="hero" style="height: 200px;">
+     <div class="hero-container">
+       <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+         <div class="carousel-inner" role="listbox">
+
+           <!-- Slide 1 -->
+           <div class="carousel-item active" style="background-image: url('assets/img/slide/inside.jpg');  ">
+             <div class="carousel-container">
+               <div class="carousel-content container">
+                 <h2 class="animated fadeInDown" style="margin-bottom: 400px;">Contact Us </h2>
+               </div>
+             </div>
+           </div>
+
+
+
+
+         </div>
+
+
+       </div>
+     </div>
+   </section><!-- End Hero -->
+
+   <main id="main">
+
+     <!-- ======= About Us Section ======= -->
+     <section id="about" class="about">
+       <div class="container">
+         <!--div class="section-title">
+          <h1>WELCOME TO FOURVAC TECHNOLOGIES</h1>
+        </div-->
+         <div class="row no-gutters">
+           <div class="col-lg-6 video-box" style="margin-top:50px;">
+             <div data-aos="fade-up" data-aos-delay="100">
+
+               <h4 class="title"><a href="#">Our Contact Details</a></h4>
+             </div>
+             <div class="icon-box" data-aos="fade-up" data-aos-delay="100" style="margin-top: 0px;">
+               <p>
+                 <b>Address:</b> </br>Priyadarshni Industrial Premises, </br>T - 165/03/08,
+                 M.I.D.C.,Bhosari,Pune - 411026, India.
+               </p>
+               <p>
+                 <b>Write to Us:</b> </br>sales@fourvac.com
+                 </br>admin@fourvac.com
+               </p>
+               <p><b>Call Us On:</b></br> +91 20 27122660
+               </p>
+             </div>
+           </div>
+
+           <div class="col-lg-6 video-box" style="margin-top:50px;">
+
+             <div data-aos="fade-up" data-aos-delay="100">
+
+               <h4 class="title"><a href="#">FeedBack Form</a></h4>
+             </div>
+
+             <div class="icon-box" data-aos="fade-up" data-aos-delay="100" style="margin-top: 0px;">
+               <p class="description">
+               <form action="/submitContactForm" method="post">
+                 <div class="form-row">
+                   <div class="col-lg-6 form-group">
+                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                     <div class="validate"></div>
+                   </div>
+                   <div class="col-lg-6 form-group">
+                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                     <div class="validate"></div>
+                   </div>
+                 </div>
+                 <div class="form-group">
+                   <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                   <div class="validate"></div>
+                 </div>
+                 <div class="form-group">
+                   <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                   <div class="validate"></div>
+                 </div>
+                 <!--div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div-->
+                 <div class="text-center"><button type="submit">Send Message</button></div>
+               </form>
+               </p>
+             </div>
+
+           </div>
+         </div>
+
+       </div>
+     </section><!-- End About Us Section -->
+
+
+     <!-- ======= Counts Section ======= -->
+     <section class="counts section-bg">
+       <div class="container">
+         <div class="row">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15123.752447415605!2d73.8299189!3d18.6218532!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62d20ea1b3838c7a!2sFourvac+Technologies!5e0!3m2!1sen!2sin!4v1457810608071" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+         </div>
+       </div>
+     </section><!-- End Counts Section -->
+
+
+
+
+
+
+   </main><!-- End #main -->
+
+  
+   
+   
+   <!-- ======= Footer ======= -->
+   
+   	<footer id="footer">
+   		<div class="footer-top">
+   			<div class="container">
+   				<div class="row">
+   
+   					<div class="col-lg-3 col-md-6 footer-info">
+   						<h3>FOURVAC TECHNOLOGIES</h3>
+   						<p>
+   							Priyadarshni Industrial Premises, <br>
+   							T - 165/03/08, MIDC Bhosari<br>
+   							Pune 411 026<br><br>
+   							<strong>Phone:</strong> +91 (20) 27122660<br>
+   							<strong>Email:</strong> admin@fourvac.com<br>
+   						</p>
+   
+   					</div>
+   
+   					<div class="col-lg-3 col-md-6 footer-links">
+   						<h4>Useful Links</h4>
+   							<ul>
+   							<li><i class="bx bx-chevron-right"></i> <a href="/home">Home</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="/aboutus">About
+   									us</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="/ourservices">Services</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="/agencies">Agencies</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="/getquotation">Get Quotation</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="admin/login" target="_blank">AdminPanel</a></li>
+   						</ul>
+   
+   					</div>
+   
+   					<div class="col-lg-3 col-md-6 footer-links">
+   						<h4>Our Products</h4>
+   						<ul>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Hv And Uhv Chambers</a>
+   							</li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Cf Flanges And
+   									Fittings</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Kf Flanges And
+   									Fittings</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Iso Flanges And
+   									Fittings</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Hybrid Adaptors</a>
+   							</li>
+   						</ul>
+   					</div>
+   					<div class="col-lg-3 col-md-6 footer-links">
+   						<h4>Our Products</h4>
+   						<ul>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Valves</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Motion And
+   									Manipulation</a></li>
+   							<li><i class="bx bx-chevron-right"></i><a href="">Customized
+   									Projects</a></li>
+   							<li><i class="bx bx-chevron-right"></i> <a href="">Linear Z-Shifts</a>
+   							</li>
+   							<li><i class="bx bx-chevron-right"></i> <a href=""> E-rava systems</a>
+   							</li>
+   						</ul>
+   					</div>
+   
+   					<div class="col-lg-4 col-md-6 footer-newsletter">
+   						<h4>Our Social</h4>
+   
+   						<div class="social-links mt-3">
+   							<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+   							<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+   							<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+   							<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+   							<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+   						</div>
+   
+   					</div>
+   
+   				</div>
+   			</div>
+   		</div>
+   
+   		<div class="container">
+   			<div class="copyright">
+   				&copy; Copyright 2020 <strong><span>Fourvac technologies</span></strong>.
+   				All Rights Reserved
+   			</div>
+   			<div class="credits">
+   
+   				Designed by <a href="#">SwaPra Technologies</a>
+   			</div>
+   		</div>
+   	</footer>
+   
+   	<!-- ======= Footer ======= -->
+
+   
+   
+   
+   
+
+   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+   <!-- Vendor JS Files -->
+   <script src="assets/vendor/jquery/jquery.min.js"></script>
+
+   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+   <script src="assets/vendor/php-email-form/validate.js"></script>
+   <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+   <script src="assets/vendor/venobox/venobox.min.js"></script>
+   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+   <script src="assets/vendor/counterup/counterup.min.js"></script>
+   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+   <script src="assets/vendor/aos/aos.js"></script>
+
+   <!-- Template Main JS File -->
+   <script src="assets/js/main.js"></script>
+
+ </body>
+
+
+ </html>

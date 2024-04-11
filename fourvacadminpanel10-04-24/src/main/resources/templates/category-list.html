@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Categories</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 60px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #555;
+        }
+
+        #sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #sidebar ul li a:hover {
+            background-color: #555;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        /* Style for table header */
+        th {
+            background-color: #f2f2f2;
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .topbar {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            text-decoration: none;
+            background-color: #0056b3;
+        }
+
+        .navbar-nav.ml-auto .nav-item.dropdown {
+            position: static;
+        }
+
+        .dropdown-toggle::after,
+        .dropdown-toggle::before {
+            color: #ffffff; /* Change the color to your desired color */
+        }
+        /* Styling for edit and delete buttons */
+.edit-button,
+.delete-button {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 5px; /* Add some spacing between buttons */
+    text-decoration: none;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    background-color: darkgreen; /* Darker shade on hover */
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/categories/">Category</a></li>
+            <li><a href="/addProduct">Add Products Contents</a></li>
+            <li><a href="/pdf">Add Product PDF</a></li>
+            <li><a href="/imageUpload">Add Products Images</a></li>
+            <li><a href="viewImages">Delete Products Images</a></li>
+            
+        </ul>
+    </div>
+    <div id="content">
+        <nav class="navbar navbar-expand-lg bg-dark" style=" height: 80px;">
+            <!-- Admin Panel - Categories in the top bar -->
+            <h2 class="text-white ml-5">Admin Panel - Categories</h2>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown ets-right-0 bg-dark">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class='fa fa-user-circle' style="font-size:36px;color:rgb(255, 250, 250)"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <h4 class="dropdown-header text-center" style="font-size: 20px; font-weight: bold;">admin</h4>
+    <h3 class="dropdown-content text-center" style="font-size: 25px">Administrator</h3>
+    <div class="dropdown-divider"></div>
+    <form th:action="@{/admin/login}" method="post">
+        <button type="submit" class="dropdown-item text-center" style="padding: 0.5rem 1rem; color: #000; text-decoration: none; border: none; background: none;">
+            Logout
+        </button>
+    </form>
+</div>
+
+                </li>
+            </ul>
+        </nav>
+        <!-- Add Category button placed to the right of the category list heading -->
+        <div class="row">
+            <div class="col-md-8 mt-4">
+                <h2 class="font-weight-bold ml-3">Category List</h2>
+            </div>
+            <div class="col-md-4 ">
+                <form action="/categories/add" method="get" class="d-flex justify-content-end mt-5 mr-5">
+                    <button type="submit" style="background-color: green;" class="btn btn-primary"><i class="fas fa-plus"></i> Add Category</button>
+                </form>
+            </div>
+        </div>
+
+      
+      <div class="col mt-2">
+    <p>Show entries: <span th:text="${categories.size()}"></span></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="category, index : ${categories}">
+                <td th:text="${index.index + 1}"></td>
+                <td th:text="${category.categoryName}"></td>
+                <td>
+                    <a class="button-1 edit-button" th:href="@{/categories/update/{id}(id=${category.id})}">Edit</a>
+                    <a class="button-1 delete-button" th:href="@{/categories/delete/{id}(id=${category.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+      
+      
+      
+      
+      
+        <hr class="mt-5">
+        <p class="mt-5">
+            &COPY; Copyright 2024 Fourvac technologies.All Rights Reserved Designed by <a href="">
+                SwaPra Technologies</a>
+        </p>
+    </div>
+</body>
+
+</html>
